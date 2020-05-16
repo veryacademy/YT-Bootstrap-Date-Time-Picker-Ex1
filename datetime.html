@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Dependancies -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.css"/ >
+    <script src="jquery.js"></script>
+    <script src="build/jquery.datetimepicker.full.min.js"></script>
+
+    <title>Date Time Picker</title>
+
+  </head>
+  <body>
+
+    <div class="container text-light mt-5">
+      <div class="row justify-content-md-center">
+        <div class="col-md-5 bg-dark p-3">
+          <h1 class="text-center">Date Picker Default</h1>
+          <form id="form">
+            <div class="form-group">
+            <label for="dtpicker">Datetime:</label>
+            <input class="form-control" id="dtpicker" type="text">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container text-light mt-5">
+      <div class="row justify-content-md-center">
+        <div class="col-md-5 bg-dark p-3">
+          <h1 class="text-center">Date Picker Options</h1>
+          <form id="form">
+            <div class="form-group"></div>
+            <label for="dtpicker1">Datetime:</label>
+            <input class="form-control" id="dtpicker1" type="text">
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-light mt-5">
+      <div class="row justify-content-md-center">
+        <div class="col-md-5 bg-dark p-3">
+          <h1 class="text-center">Date Picker Start End</h1>
+          <form id="form">
+            <div class="form-group"></div>
+            <label for="date_timepicker_start">Start:</label>
+            <input class="form-control" id="date_timepicker_start" type="text">
+            <div class="form-group"></div>
+            <label for="date_timepicker_end">End:</label>
+            <input class="form-control" id="date_timepicker_end" type="text">
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    jQuery('#dtpicker').datetimepicker();
+    </script> 
+
+    <script>
+    jQuery.datetimepicker.setLocale('en');
+    </script>
+
+    <script>
+    jQuery('#dtpicker1').datetimepicker({
+      timepicker:true,
+      format:'d.m.Y',
+      //format:'Y/m/d H:i',
+      //weeks:true
+      //theme:'dark'
+      //minDate:'2013/12/03'
+      //maxDate:'2013/12/03'
+      //startDate:'1987/12/03'
+      //startDate:new Date()
+      allowTimes:[
+        '09:00',
+        '11:00',
+        '12:00',
+        '21:00'
+      ],
+      todayButton:false,
+    });
+    </script>
+
+    <script>
+      jQuery(function(){
+        jQuery('#date_timepicker_start').datetimepicker({
+        format:'Y/m/d',
+        timepicker:false,
+        onShow:function( ct ){
+          this.setOptions({
+          maxDate:jQuery('#date_timepicker_end').val()?jQuery('#date_timepicker_end').val():false
+          })
+        },
+        });
+        jQuery('#date_timepicker_end').datetimepicker({
+        format:'Y/m/d',
+        timepicker:false,
+        onShow:function( ct ){
+          this.setOptions({
+          minDate:jQuery('#date_timepicker_start').val()?jQuery('#date_timepicker_start').val():false
+          })
+        },
+        });
+      });
+    </script>
+
+    <!--
+      
+        Options: https://xdsoft.net/jqplugins/datetimepicker/
+
+        Copyright (c) 2013 http://xdsoft.net
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+
+    -->
+
+    <!-- Optional JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
